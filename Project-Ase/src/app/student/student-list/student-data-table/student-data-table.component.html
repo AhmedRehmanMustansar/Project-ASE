@@ -1,0 +1,16 @@
+<table >
+  <tr>
+    <th *ngFor = "let x of ['Name','Email','Cell Number','Age','Address','Course Count']">{{x}}</th>
+  </tr>
+  <tr *ngFor = "let y of students">
+    <td>{{y.name}}</td>
+    <td>{{y.email}}</td>
+    <td>{{y.cellno}}</td>
+    <td>{{y.age}}</td>
+    <td>{{y.address}}</td>
+    <td>0</td>
+    <button (click)="onEdit()">Edit</button>
+    <button>Delete</button>
+  </tr>
+  
+</table>
