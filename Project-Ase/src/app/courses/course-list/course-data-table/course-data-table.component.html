@@ -1,0 +1,32 @@
+<table *ngIf="!Filter">
+    <tr>
+      <th *ngFor = "let x of ['Name','Credit Hours','Lab','Subject','Student Count']">{{x}}</th>
+    </tr>
+    <tr *ngFor = "let y of courses">
+      <td>{{y.name}}</td>
+      <td>{{y.credithour}}</td>
+      <td>{{y.lab}}</td>
+      <td>{{y.Field}}</td>
+      <td>0</td>
+      <button (click)="onEdit(y.id)">Edit</button>
+      <button (click)="onDelete(y.id)">Delete</button>
+    </tr>
+    
+  </table>
+  
+  <table *ngIf=" Filter? onFilter() : false">
+    <tr>
+      <th *ngFor = "let x of ['Name','Credit Hours','Lab','Subject','Student Count']">{{x}}</th>
+    </tr>
+    <tr *ngFor = "let y of filter">
+        <td>{{y.name}}</td>
+        <td>{{y.credithour}}</td>
+        <td>{{y.lab}}</td>
+        <td>{{y.Field}}</td>
+        <td>0</td>
+      <button (click)="onEdit(y.id)">Edit</button>
+      <button (click)="onDelete(y.id)">Delete</button>
+    </tr>
+    
+  </table>
+  

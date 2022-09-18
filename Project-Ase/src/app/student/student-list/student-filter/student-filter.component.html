@@ -1,0 +1,13 @@
+<form [formGroup] = "searchform" action="/action_page.php" (ngSubmit)="onSubmit()">
+    <label for="name"> Name:</label>
+    <input type="text" id="name" formControlName= "name" name="name"><br><br>
+    <label for="email">Email:</label>
+    <input type="text" id="email" formControlName="email" name="email" ><br><br>
+    <label for="age">Age:</label>
+    <input type="text" id="age" formControlName="age"name="age" ><br><br>
+    <label for="address">Address:</label>
+    <input type="text" id="address" formControlName="address" name="address" ><br><br>
+    <label for="cellno">Cell:</label>
+    <input type="text" id="cellno" formControlName="cellno"name="cellno" ><br><br>
+    <button type="submit">Submit</button>
+  </form>
