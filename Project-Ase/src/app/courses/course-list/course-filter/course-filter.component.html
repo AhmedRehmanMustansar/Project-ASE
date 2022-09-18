@@ -1,0 +1,20 @@
+<form [formGroup] = "searchform" action="/action_page.php" (ngSubmit)="onSubmit()">
+    <label for="name"> Name:</label>
+    <input type="text" id="name" formControlName= "name" name="name"><br><br>
+    <label for="credithours">Credit-Hours:</label>
+    <input type="text" id="credithours" formControlName="credithours" name="credithours" ><br><br>
+    <label class="l1">
+      <label>Lab</label>
+      <input type="radio" value="true" formControlName="lab">
+        <span>true</span>
+    </label>
+    <label class = "l1">
+      <input type="radio" value="false" formControlName="lab">
+        <span>false</span>
+    </label>
+    <label class ="l2"for="subject">Subject:</label>
+    <select formControlName="subject" class="form-control" >
+        <option *ngFor="let x of subjects" [value]="x">{{x}}</option>
+    </select>
+    <button type="submit">Submit</button>
+  </form>

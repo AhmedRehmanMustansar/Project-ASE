@@ -1,0 +1,46 @@
+<div>
+<form [formGroup] = "addform"  *ngIf = "AddorEdit === 'add'"   (ngSubmit) ="onSubmit()">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" formControlName = "name" name="name">
+    <div><span *ngIf="!addform.get('name')?.valid && addform.get('name')?.touched" class="help-block">please enter valid name</span></div>
+    <label for="email">Email Address</label>
+    <input type="text" id="email" formControlName = "email" name="email">
+    <div><span *ngIf="!addform.get('email')?.valid && addform.get('email')?.touched" class="help-block">please enter valid email</span></div>
+    <label for="cellno">Cell Number</label>
+    <input type="text" id="cellno" formControlName = "cellno" name="cellno">
+    <div><span *ngIf="!addform.get('cellno')?.valid && addform.get('cellno')?.touched" class="help-block">please enter valid cell number</span></div>
+    <label for="age">Age</label>
+    <input type="text" id="age" formControlName = "age" name="age">
+    <div><span *ngIf="!addform.get('age')?.valid && addform.get('age')?.touched" class="help-block">please enter valid age</span></div>
+    <label for="address">Address</label>
+    <input type="text" id="address" formControlName = "address" name="address">
+    <div><span *ngIf="!addform.get('address')?.valid && addform.get('address')?.touched" class="help-block">please enter valid address</span></div>
+    <button type="submit">Submit</button>
+</form>
+</div>
+
+
+<div>
+    <form [formGroup] = "addform" *ngIf = "AddorEdit === 'edit'" (ngSubmit) ="onUpdate()">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" formControlName = "name" name="name">
+        <div><span *ngIf="!addform.get('name')?.valid && addform.get('name')?.touched" class="help-block">please enter valid name</span></div>
+        <label for="email">Email Address</label>
+        <input type="text" id="email" formControlName = "email" name="email">
+        <div><span *ngIf="!addform.get('email')?.valid && addform.get('email')?.touched" class="help-block">please enter valid email</span></div>
+        <label for="cellno">Cell Number</label>
+        <input type="text" id="cellno" formControlName = "cellno" name="cellno">
+        <div><span *ngIf="!addform.get('cellno')?.valid && addform.get('cellno')?.touched" class="help-block">please enter valid cell number</span></div>
+        <label for="age">Age</label>
+        <input type="text" id="age" formControlName = "age" name="age">
+        <div><span *ngIf="!addform.get('age')?.valid && addform.get('age')?.touched" class="help-block">please enter valid age</span></div>
+        <label for="address">Address</label>
+        <input type="text" id="address" formControlName = "address" name="address">
+        <div><span *ngIf="!addform.get('address')?.valid && addform.get('address')?.touched" class="help-block">please enter valid address</span></div>
+        <button type="submit">Update</button>
+    </form>
+
+
+
+
+</div>

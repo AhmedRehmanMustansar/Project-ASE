@@ -1,4 +1,4 @@
-<table >
+<table *ngIf="!Filter">
   <tr>
     <th *ngFor = "let x of ['Name','Email','Cell Number','Age','Address','Course Count']">{{x}}</th>
   </tr>
@@ -9,8 +9,25 @@
     <td>{{y.age}}</td>
     <td>{{y.address}}</td>
     <td>0</td>
-    <button (click)="onEdit()">Edit</button>
-    <button>Delete</button>
+    <button (click)="onEdit(y.id)">Edit</button>
+    <button (click)="onDelete(y.id)">Delete</button>
+  </tr>
+  
+</table>
+
+<table *ngIf="Filter? onFilter() : false">
+  <tr>
+    <th *ngFor = "let x of ['Name','Email','Cell Number','Age','Address','Course Count']">{{x}}</th>
+  </tr>
+  <tr *ngFor = "let y of filter">
+    <td>{{y.name}}</td>
+    <td>{{y.email}}</td>
+    <td>{{y.cellno}}</td>
+    <td>{{y.age}}</td>
+    <td>{{y.address}}</td>
+    <td>0</td>
+    <button (click)="onEdit(y.id)">Edit</button>
+    <button (click)="onDelete(y.id)">Delete</button>
   </tr>
   
 </table>
