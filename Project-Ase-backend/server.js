@@ -20,6 +20,9 @@ app.use(express.urlencoded({extended:true}));
 const  router = require('./controllers/studentController');
 app.use('/api/students', router);
 
+const router2 = require('./controllers/courseController');
+
+
 
 app.get('/',(req,res)=>{
     res.json({message:'hello from api'});
