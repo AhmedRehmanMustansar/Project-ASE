@@ -22,7 +22,7 @@ app.use('/api/students', router);
 
 const router2 = require('./controllers/courseController');
 
-
+app.use('/api/courses', router2);
 
 app.get('/',(req,res)=>{
     res.json({message:'hello from api'});

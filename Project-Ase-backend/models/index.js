@@ -37,6 +37,17 @@ db.sequelize = sequelize;
 db.students = require('./studentModel')(sequelize,DataTypes);
 db.courses = require('./courseModel')(sequelize,DataTypes);
 
+db.students.belongsToMany(db.courses, {
+    through: "student_course",
+    as: "Students",
+    foreignKey: "student_id",
+  });
+  db.courses.belongsToMany(db.students, {
+    through: "student_course",
+    as: "courses",
+    foreignKey: "course_id",
+  });
+
 db.sequelize.sync({force: true})
 .then(
     () =>{
