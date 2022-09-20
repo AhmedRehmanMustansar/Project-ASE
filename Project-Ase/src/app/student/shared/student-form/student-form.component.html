@@ -15,6 +15,15 @@
     <label for="address">Address</label>
     <input type="text" id="address" formControlName = "address" name="address">
     <div><span *ngIf="!addform.get('address')?.valid && addform.get('address')?.touched" class="help-block">please enter valid address</span></div>
+    <div formArrayName="courses">
+    <div><label>Courses</label></div>
+    <button class ="btn" type="button" (click)="onAddCourse()">Add Course</button>
+     <div class="form-group" *ngFor="let hobby of getControls(); let i = index">
+        <input type="text" class ="form-control" [formControlName]="i">
+        <div><span *ngIf="!addform.get('courses')?.valid && addform.get('courses')?.touched"  class="help-block">We do not have this course</span></div>
+     </div>
+    </div>
+    
     <button type="submit">Submit</button>
 </form>
 </div>
@@ -37,6 +46,14 @@
         <label for="address">Address</label>
         <input type="text" id="address" formControlName = "address" name="address">
         <div><span *ngIf="!addform.get('address')?.valid && addform.get('address')?.touched" class="help-block">please enter valid address</span></div>
+        <div formArrayName="courses">
+            <div><label>Courses</label></div>
+            <button class ="btn" type="button" (click)="onAddCourse()">Add Course</button>
+             <div class="form-group" *ngFor="let hobby of getControls(); let i = index">
+                <input type="text" class ="form-control" [formControlName]="i">
+                <div><span *ngIf="!addform.get('courses')?.valid && addform.get('courses')?.touched"  class="help-block">We do not have this course</span></div>
+             </div>
+            </div>
         <button type="submit">Update</button>
     </form>
 

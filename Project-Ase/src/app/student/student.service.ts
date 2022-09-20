@@ -4,8 +4,8 @@ import { student } from "./student.model";
 export class StudentService{
    students: student[] = [
   
-    new student(1,'Jett','ahmed.rehman@empglabs.com','03499404067',24,'Verdansk'),
-    new student(2,'Neon','neon@empglabs.com','03696942040',20,'Ascent'),
+    new student(1,'Jett','ahmed.rehman@empglabs.com','03499404067',24,'Verdansk',[]),
+    new student(2,'Neon','neon@empglabs.com','03696942040',20,'Ascent',[]),
 
 ]
    array:student[] = [];
@@ -19,7 +19,12 @@ editStudent(Student: student){
         return element.id === +Student.id;
       }
     );
-    this.students[index] = Student;
+    this.students[index].courselist = this.students[index].courselist.concat(Student.courselist);
+    this.students[index].id = +Student.id;
+    this.students[index].age = Student.age;
+    this.students[index].cellno = Student.cellno;
+    this.students[index].email= Student.email;
+    this.students[index].name = Student.name;
     
 }
 onDelete(id:number){
