@@ -28,7 +28,7 @@ export class StudentFilterComponent implements OnInit {
   }
 
  onSubmit(){
-  let Student = new student(0,this.searchform.value.name,this.searchform.value.email,this.searchform.value.cellno,+this.searchform.value.age,this.searchform.value.address);
+  let Student = new student(0,this.searchform.value.name,this.searchform.value.email,this.searchform.value.cellno,+this.searchform.value.age,this.searchform.value.address,['']);
   this.studentservice.filterstudent(Student);
   this.b1.emit(!this.filter);
 

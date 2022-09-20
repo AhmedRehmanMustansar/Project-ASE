@@ -9,7 +9,7 @@ constructor(){
 courses: course[]= [
 
   new course(1, 'Physics101', 3, true, field.science),
-  new course(2, 'Pakistan History', 2, false, field.history),
+  new course(2, 'PakistanHistory', 2, false, field.history),
 
 ]
 
@@ -53,14 +53,6 @@ onDelete(id:number){
     this.filterarray = this.courses.filter(
       (c1)=>{
        if(c1.name === Course.name || c1.credithour === +Course.credithour || c1.Field === (Course.Field as string) || (c1.lab == Course.lab)){
-        console.log(Course.name);
-        console.log(c1.name);
-        console.log(Course.credithour);
-        console.log(c1.credithour);
-        console.log(Course.lab);
-        console.log(c1.lab);
-        console.log(Course.Field);
-        console.log(c1.Field);
          return true;
        }
        return false;

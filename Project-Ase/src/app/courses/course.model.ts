@@ -10,7 +10,14 @@ export enum field{
 
 export class course{
 
-constructor( public id:number, public name:string, public credithour: number, public lab : boolean, public Field: field){
+constructor( 
+    public id:number, 
+    public name:string, 
+    public credithour: number, 
+    public lab : boolean, 
+    public Field: field,
+    public count?: number,
+    ){
  
 }
 
