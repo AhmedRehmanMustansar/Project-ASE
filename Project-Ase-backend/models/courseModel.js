@@ -2,11 +2,7 @@ module.exports = (sequelize, DataTypes) =>{
 
     const Course = sequelize.define("course", {
   
-      title:{
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      subject:{
+      name:{
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -14,10 +10,15 @@ module.exports = (sequelize, DataTypes) =>{
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+
       lab:{
         type: DataTypes.BOOLEAN,
         allowNull: false,
-      }
+      },
+      subject:{
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
 
     });
     

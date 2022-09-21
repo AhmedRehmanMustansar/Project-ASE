@@ -16,11 +16,12 @@ export class StudentDataTableComponent implements OnInit {
 
   constructor( private studentservice: StudentService, private nav : Router, private path: ActivatedRoute) { 
 
+
   }
 
   ngOnInit(): void {
    this.Filter= false;
-   this.students = this.studentservice.students;
+   this.students = this.studentservice.fetchstudent();
   }
 
   onEdit(id: number){

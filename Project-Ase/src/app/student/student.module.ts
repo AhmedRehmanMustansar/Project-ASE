@@ -7,7 +7,7 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import { StudentFilterComponent } from './student-list/student-filter/student-filter.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {HttpClientModule} from '@angular/common/http';
 
 
 
@@ -25,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    HttpClientModule,
 
   ],
   exports: [StudentListComponent,AddStudentComponent],

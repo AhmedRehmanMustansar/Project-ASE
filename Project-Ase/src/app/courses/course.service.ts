@@ -8,8 +8,8 @@ constructor(){
 
 courses: course[]= [
 
-  new course(1, 'Physics101', 3, true, field.science),
-  new course(2, 'PakistanHistory', 2, false, field.history),
+  new course(1, 'Physics101',field.science, 3, true, ),
+  new course(2, 'PakistanHistory',field.history, 2, false, ),
 
 ]
 

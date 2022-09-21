@@ -46,7 +46,7 @@ export class CourseFormComponent implements OnInit {
       return;
   }
 
-  let Course = new course(0,this.addcourse.value.name,+this.addcourse.value.credithour,(this.addcourse.value.lab as boolean),(this.addcourse.value.subject as field));
+  let Course = new course(0,this.addcourse.value.name,(this.addcourse.value.subject as field),+this.addcourse.value.credithour,(this.addcourse.value.lab as boolean));
   this.courseservice.AddCourse(Course);
 }
 
@@ -56,7 +56,7 @@ onUpdate(){
     return;
 }
 
-let Course = new course(+this.id,this.addcourse.value.name,+this.addcourse.value.credithour,(this.addcourse.value.lab as boolean),(this.addcourse.value.subject as field));
+let Course = new course(+this.id,this.addcourse.value.name,(this.addcourse.value.subject as field),+this.addcourse.value.credithour,(this.addcourse.value.lab as boolean));
 this.courseservice.EditCourse(Course);
 }
 

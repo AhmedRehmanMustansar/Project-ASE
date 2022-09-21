@@ -8,9 +8,9 @@
     <td>{{y.cellno}}</td>
     <td>{{y.age}}</td>
     <td>{{y.address}}</td>
-    <td>{{y.courselist.length}}</td>
-    <button (click)="onEdit(y.id)">Edit</button>
-    <button (click)="onDelete(y.id)">Delete</button>
+    <td>{{y.courses === null? 0: y.courses?.length}}</td>
+    <button (click)="onEdit(y.id!)">Edit</button>
+    <button (click)="onDelete(y.id!)">Delete</button>
   </tr>
   
 </table>
@@ -25,9 +25,9 @@
     <td>{{y.cellno}}</td>
     <td>{{y.age}}</td>
     <td>{{y.address}}</td>
-    <td>{{y.courselist.length}}</td>
-    <button (click)="onEdit(y.id)">Edit</button>
-    <button (click)="onDelete(y.id)">Delete</button>
+    <td>{{y.courses === null? 0 : y.courses?.length}}</td>
+    <button (click)="onEdit(y.id!)">Edit</button>
+    <button (click)="onDelete(y.id!)">Delete</button>
   </tr>
   
 </table>

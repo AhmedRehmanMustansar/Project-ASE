@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 
 var corOptions = {
-    origin: 'https://localhost:8081'
+    origin: '*'
 
 }
 
@@ -13,7 +13,7 @@ var corOptions = {
 
 
 //middleware
-app.use(cors(corOptions));
+app.use(cors(corOptions));  
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
@@ -31,7 +31,10 @@ app.get('/',(req,res)=>{
 
 const PORT = process.env.PORT || 8080;
 
-
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    next();
+  });
 app.listen(PORT, ()=>{
     console.log(`server is running on port ${PORT}`);
 })

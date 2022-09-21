@@ -2,14 +2,14 @@ module.exports = (sequelize, DataTypes) =>{
 
     const Student = sequelize.define("student", {
   
-      title:{
+      name:{
         type: DataTypes.STRING,
         allowNull: false,
       }, 
       email:{
         type: DataTypes.TEXT,
       },
-      cellnumber:{
+      cellno:{
         type: DataTypes.STRING,
         allowNull: false,
       },
