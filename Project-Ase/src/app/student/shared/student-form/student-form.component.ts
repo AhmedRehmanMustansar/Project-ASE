@@ -60,22 +60,29 @@ export class StudentFormComponent implements OnInit {
   }
 
   // adding student and the courses he is enlisted in
-   let Student = new student(0,this.addform.value.name,this.addform.value.email,this.addform.value.cellno,+this.addform.value.age,this.addform.value.address, (this.addform.value.courses as string[]));
+   let Student = new student(this.addform.value.name,this.addform.value.email,this.addform.value.cellno,+this.addform.value.age,this.addform.value.address, (this.addform.value.courses as course[]));
    this.studentservice.addStudent(Student);
 
   
-    
    alert("Student has been added");
   }
 
   onUpdate(){
-    let Student = new student(this.id,this.addform.value.name,this.addform.value.email,this.addform.value.cellno,+this.addform.value.age,this.addform.value.address,(this.addform.value.courses as string[]));
+    let Student = new student(this.addform.value.name,this.addform.value.email,this.addform.value.cellno,+this.addform.value.age,this.addform.value.address,(this.addform.value.courses as course[]),this.id);
     this.studentservice.editStudent(Student);
     alert("Student has been edited");
   }
 
   onAddCourse(){
-    const control = new FormControl(null,[Validators.required, this.coursemismatchValidator.bind(this)]);
+    //const control = new FormControl(null,[Validators.required]);
+   const control = new FormGroup(
+      {
+        'name': new FormControl(null,[Validators.required]),
+        'credithour': new FormControl(null,[Validators.required, Validators.pattern('[1|2|3]')]),
+        'lab': new FormControl(null,[Validators.required, Validators.pattern('True|true|False|false|TRUE|FALSE')],),
+        'subject': new FormControl(null, [Validators.required, Validators.pattern('science|history|arts')]),
+      }
+    );
     (<FormArray>this.addform.get('courses')).push(control);
   }
 

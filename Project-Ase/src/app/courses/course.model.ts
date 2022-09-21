@@ -13,9 +13,9 @@ export class course{
 constructor( 
     public id:number, 
     public name:string, 
+    public Field: field,
     public credithour: number, 
     public lab : boolean, 
-    public Field: field,
     public count?: number,
     ){
  

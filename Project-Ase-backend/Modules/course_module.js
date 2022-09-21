@@ -7,11 +7,10 @@ const Course= db.courses;
 const addCourse = async (req,res)=>{
 
   let info = {
-    title:req.body.title,
-    subject: req.body.subject,
+    name:req.body.name,
     credithour: req.body.credithour,
     lab: req.body.lab? req.body.lab : false,
-
+    subject: req.body.subject,
   }
 
   const course = await Course.create(info);

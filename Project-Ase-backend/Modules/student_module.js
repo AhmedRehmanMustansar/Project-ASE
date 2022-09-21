@@ -1,20 +1,22 @@
 const db = require('../models');
 
 const Student = db.students;
+const Course = db.courses;
 
 
 
 const addStudent = async (req,res)=>{
 
   let info = {
-    title:req.body.title,
+    name:req.body.name,
     email:req.body.email,
-    cellnumber:req.body.cellnumber,
+    cellno:req.body.cellno,
     age:req.body.age,
     address:req.body.address,
+    courses:req.body.courses,
   }
 
-  const student = await Student.create(info);
+  const student = await Student.create(info, {include: db.courses});
   res.status(200).send(student);
   console.log(student);
 

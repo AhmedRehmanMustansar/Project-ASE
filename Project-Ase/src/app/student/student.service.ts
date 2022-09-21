@@ -1,31 +1,63 @@
 
+import { keyframes } from "@angular/animations";
+import { HttpClient } from "@angular/common/http";
+import { Injectable, OnInit } from "@angular/core";
 import { student } from "./student.model";
-
+@Injectable()
 export class StudentService{
-   students: student[] = [
-  
-    new student(1,'Jett','ahmed.rehman@empglabs.com','03499404067',24,'Verdansk',[]),
-    new student(2,'Neon','neon@empglabs.com','03696942040',20,'Ascent',[]),
+   students: student[] = [];
+constructor(private http: HttpClient){
 
-]
-   array:student[] = [];
+}
+
+
+ 
+array: student[]= [];
+
+
+fetchstudent(){
+  this.http.get('http://localhost:8080/api/students/allStudents',).subscribe(
+    (res) =>{
+      for(let key in res){
+      console.log(((res[key as keyof Object]) as any));
+      this.students.push(new student(((res[key as keyof Object]) as any).name,((res[key as keyof Object]) as any).email,((res[key as keyof Object]) as any).cellno,((res[key as keyof Object]) as any).age,((res[key as keyof Object]) as any).address, [], ((res[key as keyof Object]) as any).id));
+      }
+    }
+    )
+    return this.students;
+  }
+
+
+
 addStudent( Student: student){
-    this.students.push(Student);
+  let body = JSON.stringify(Student);
+  console.log(body);
+ this.http.post('http://localhost:8080/api/students/addStudent',body, {headers: {"Content-Type": "application/json"}}).subscribe(
+  (res)=>{
+    console.log('done');
+  }
+ );
+
+ 
+
+
 }
 
 editStudent(Student: student){
+
+
     let index = this.students.findIndex(
       (element)=>{
-        return element.id === +Student.id;
+        return element.id === +Student.id!;
       }
     );
-    this.students[index].courselist = this.students[index].courselist.concat(Student.courselist);
-    this.students[index].id = +Student.id;
+    this.students[index].courses = this.students[index].courses?.concat();
+    this.students[index].id = +Student.id!;
     this.students[index].age = Student.age;
     this.students[index].cellno = Student.cellno;
     this.students[index].email= Student.email;
     this.students[index].name = Student.name;
-    
+
 }
 onDelete(id:number){
   let index = this.students.findIndex(

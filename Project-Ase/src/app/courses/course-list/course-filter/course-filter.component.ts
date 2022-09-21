@@ -30,7 +30,7 @@ export class CourseFilterComponent implements OnInit {
   
    let islab = (this.searchform.value.lab == "true"? true : (this.searchform.value.lab == "false" ?  false : (undefined as any)));
    let subject = (this.searchform.value.subject == 'arts'? field.arts : (this.searchform.value.subject === 'science'? field.science : (this.searchform.value.subject === 'history'? field.history: field.none)));
-   let Course = new course(0,this.searchform.value.name, +this.searchform.value.credithours, islab ,subject);
+   let Course = new course(0,this.searchform.value.name,subject,+this.searchform.value.credithours, islab );
     this.courseservice.filtercourse(Course);
     this.b1.emit(true);
    }
